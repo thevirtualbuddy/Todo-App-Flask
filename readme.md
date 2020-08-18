@@ -30,3 +30,7 @@ Or, you can run the app locally on your machine:
 5. Run the app : python app.py
 6. Open localhost:5000 on your favourite browser, your app must be up and running fine. 
 
+If you want to build this project from scratch, follow the step-by-step tutorial by Jake Rieger from the link below:
+
+[Link to Tutorial](https://www.youtube.com/watch?v=Z1RJmh_OqeA)
+
