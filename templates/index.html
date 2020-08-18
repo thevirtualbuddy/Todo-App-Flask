@@ -1,0 +1,100 @@
+<!--Importing the skeleton-->
+{% extends 'base.html' %}
+
+
+{% block head %} 
+<title>Todo App</title>
+<style>
+    #taskman {
+        background-color: #fffff0;
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #taskman td, #taskman th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        background-color: #fffafa;
+    }
+
+    #taskman tr:nth-child(even){background-color: #f2f2f2;}
+
+    #taskman tr:hover {background-color: #ddd;}
+
+    #taskman th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #323232;
+        color: white;
+    }
+
+    input[type=submit]{
+        background-color: #323232;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 3px 2px;
+        cursor: pointer;
+        border-radius: 100px;
+    }
+    input[type=text]{
+        padding: 10px 20px;
+        margin: 3px 2px;
+        border-radius: 75px;
+        width: 75%;
+    }
+
+    input[type=submit]:hover {
+        background-color: #1B2B2D;
+    }
+
+    a{
+        text-decoration: none;
+        color: #990033;
+    }
+
+    
+    
+</style> 
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 >Todo App</h1>
+
+    {% if tasks|length < 1 %}
+    <h4>You're free for the day!</h4>
+    {% else %}
+
+    <table id="taskman">
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created }}</td>
+                <td>
+                    <a href="/update/{{task.id}}">Update</a>
+                    <br>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    
+    <div style="text-align: center;">
+        <form actions="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+    
+</div>
+{% endblock %}

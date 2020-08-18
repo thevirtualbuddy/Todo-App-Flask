@@ -1,0 +1,65 @@
+<!-- This is our skeleton, it uses jinja2 template-->
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- We have linked the css file with the syntax as shown below, note to import url_for in the app.py -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='../static/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <style>
+        h1, h4{
+            text-align: center;
+            color:#fffafa;
+            background-color: #323232;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        html, body {
+            height: 100%;
+            background-color:#f4f4f4;
+        }
+        html {
+           display: table;
+            margin: auto;
+        }
+
+        div {
+            padding: 50px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #323232;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+
+    {% block head %} {% endblock %}
+</head>
+<body>
+    
+    {% block body %} {% endblock %}
+
+</body>
+
+<footer>
+    &lt;/&gt; by <a href="https://github.com/thevirtualbuddy" target="blank" style="
+        text-decoration: none;
+        color: whitesmoke
+    ">thevirtualbuddy</a> &#128049;
+</footer>
+
+</html>

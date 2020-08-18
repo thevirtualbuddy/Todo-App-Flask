@@ -1,0 +1,51 @@
+<!--Importing the skeleton-->
+{% extends 'base.html' %}
+
+
+{% block head %} 
+<title>Task Manager</title>
+
+<style>
+        input[type=submit]{
+        background-color: #323232;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 3px 2px;
+        cursor: pointer;
+        border-radius: 100px;
+    }
+    input[type=text]{
+       
+        padding: 10px 20px;
+        margin: 3px 2px;
+        border-radius: 75px;
+        width: 80%;
+    }
+
+    input[type=submit]:hover {
+        background-color: #1B2B2D;
+    }
+
+    .center {
+        margin: auto;
+        width: 100%;
+        padding: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Update Task</h1>
+
+    <form actions="/update/{{task.id}}" method="POST">
+        <div  style="text-align: center;">
+            <input type="text" name="content" id="content" value="{{task.content}}">
+            <input type="submit" value="Update">    
+        </div>
+        
+    </form>
+</div>
+{% endblock %}
